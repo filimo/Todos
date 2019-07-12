@@ -9,21 +9,27 @@
 /* Begin PBXBuildFile section */
 		F04F6B3622D8C8240052B08E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04F6B3522D8C8240052B08E /* AppDelegate.swift */; };
 		F04F6B3822D8C8240052B08E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04F6B3722D8C8240052B08E /* SceneDelegate.swift */; };
-		F04F6B3A22D8C8240052B08E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04F6B3922D8C8240052B08E /* ContentView.swift */; };
+		F04F6B3A22D8C8240052B08E /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04F6B3922D8C8240052B08E /* MainView.swift */; };
 		F04F6B3C22D8C8250052B08E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F04F6B3B22D8C8250052B08E /* Assets.xcassets */; };
 		F04F6B3F22D8C8250052B08E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F04F6B3E22D8C8250052B08E /* Preview Assets.xcassets */; };
 		F04F6B4222D8C8250052B08E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F04F6B4022D8C8250052B08E /* LaunchScreen.storyboard */; };
+		F04F6B4E22D8C8990052B08E /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04F6B4D22D8C8990052B08E /* APIService.swift */; };
+		F04F6B5022D8C8C00052B08E /* TodosViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04F6B4F22D8C8C00052B08E /* TodosViewModel.swift */; };
+		F04F6B5322D8C8FE0052B08E /* TodosModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04F6B5222D8C8FE0052B08E /* TodosModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F04F6B3222D8C8240052B08E /* Todos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Todos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F04F6B3522D8C8240052B08E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F04F6B3722D8C8240052B08E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		F04F6B3922D8C8240052B08E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		F04F6B3922D8C8240052B08E /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		F04F6B3B22D8C8250052B08E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F04F6B3E22D8C8250052B08E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F04F6B4122D8C8250052B08E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F04F6B4322D8C8250052B08E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F04F6B4D22D8C8990052B08E /* APIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		F04F6B4F22D8C8C00052B08E /* TodosViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodosViewModel.swift; sourceTree = "<group>"; };
+		F04F6B5222D8C8FE0052B08E /* TodosModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodosModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,9 +62,11 @@
 		F04F6B3422D8C8240052B08E /* Todos */ = {
 			isa = PBXGroup;
 			children = (
-				F04F6B3522D8C8240052B08E /* AppDelegate.swift */,
-				F04F6B3722D8C8240052B08E /* SceneDelegate.swift */,
-				F04F6B3922D8C8240052B08E /* ContentView.swift */,
+				F04F6B5122D8C8E50052B08E /* Modules */,
+				F04F6B4C22D8C8860052B08E /* Services */,
+				F04F6B4B22D8C87D0052B08E /* ViewModules */,
+				F04F6B4A22D8C8700052B08E /* Views */,
+				F04F6B4922D8C85A0052B08E /* Delegates */,
 				F04F6B3B22D8C8250052B08E /* Assets.xcassets */,
 				F04F6B4022D8C8250052B08E /* LaunchScreen.storyboard */,
 				F04F6B4322D8C8250052B08E /* Info.plist */,
@@ -73,6 +81,47 @@
 				F04F6B3E22D8C8250052B08E /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		F04F6B4922D8C85A0052B08E /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				F04F6B3522D8C8240052B08E /* AppDelegate.swift */,
+				F04F6B3722D8C8240052B08E /* SceneDelegate.swift */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
+		F04F6B4A22D8C8700052B08E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F04F6B3922D8C8240052B08E /* MainView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F04F6B4B22D8C87D0052B08E /* ViewModules */ = {
+			isa = PBXGroup;
+			children = (
+				F04F6B4F22D8C8C00052B08E /* TodosViewModel.swift */,
+			);
+			path = ViewModules;
+			sourceTree = "<group>";
+		};
+		F04F6B4C22D8C8860052B08E /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				F04F6B4D22D8C8990052B08E /* APIService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		F04F6B5122D8C8E50052B08E /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				F04F6B5222D8C8FE0052B08E /* TodosModel.swift */,
+			);
+			path = Modules;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -147,8 +196,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				F04F6B3622D8C8240052B08E /* AppDelegate.swift in Sources */,
+				F04F6B5322D8C8FE0052B08E /* TodosModel.swift in Sources */,
+				F04F6B5022D8C8C00052B08E /* TodosViewModel.swift in Sources */,
 				F04F6B3822D8C8240052B08E /* SceneDelegate.swift in Sources */,
-				F04F6B3A22D8C8240052B08E /* ContentView.swift in Sources */,
+				F04F6B4E22D8C8990052B08E /* APIService.swift in Sources */,
+				F04F6B3A22D8C8240052B08E /* MainView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
