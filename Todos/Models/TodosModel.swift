@@ -8,11 +8,11 @@
 
 import SwiftUI
 
-public class TodoModel: Codable, Identifiable {
+public struct TodoModel: Codable, Identifiable {
     public let userID: Int
     public let id: Int
     public let title: String
-    public let completed: Bool
+    public var completed: Bool
     
     enum CodingKeys: String, CodingKey {
         case userID = "userId"

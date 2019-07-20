@@ -10,15 +10,16 @@ import SwiftUI
 import Combine
 
 public class TodosViewModel: BindableObject {
-    public let didChange = PassthroughSubject<TodosViewModel, Never>()
+    public let willChange = PassthroughSubject<TodosViewModel, Never>()
     private let errorSubject = PassthroughSubject<APIError, Never>()
     
-    public var error: APIError? { didSet { didChange.send(self) } }
+    public var error: APIError? { didSet { willChange.send(self) } }
     public var isError: Bool {
         get { error != nil }
         set { }
     }
-    public var todos = TodosModel() { didSet { didChange.send(self) } }
+    public var todos = TodosModel() { didSet {
+        willChange.send(self) } }
     
     public var requestCancellable: Cancellable?
     
@@ -30,13 +31,13 @@ public class TodosViewModel: BindableObject {
         let apiService = APIService("https://jsonplaceholder.typicode.com/todos/")
         
         requestCancellable = apiService
-            .fetch()
-            .catch { err -> Publishers.Empty<TodosModel, Never> in
-                self.errorSubject.send(err)
-                return .init()
-            }
-            .receive(on: RunLoop.main)
-            .assign(to: \.todos, on: self)
+                    .fetch()
+                    .catch { err -> Empty<TodosModel, Never> in
+                        self.errorSubject.send(err)
+                        return .init()
+                    }
+                    .receive(on: RunLoop.main)
+                    .assign(to: \.todos, on: self)
 
         _ = errorSubject
             .eraseToAnyPublisher()

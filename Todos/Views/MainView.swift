@@ -8,15 +8,29 @@
 
 import SwiftUI
 
+struct ToDoRow: View {
+    var title: String
+    @State var completed: Bool
+    
+    var body: some View {
+        HStack {
+            Text(title)
+            Toggle(isOn: $completed) {
+                Text("completed")
+            }
+        }
+    }
+}
+
 struct MainView : View {
     @ObjectBinding var todosViewModel = TodosViewModel()
     
     var body: some View {
         VStack {
             List(todosViewModel.todos) { todo in
-                Text(todo.title)
+                ToDoRow(title: todo.title, completed: todo.completed)
             }
-            .presentation($todosViewModel.isError) { () -> Alert in
+            .alert(isPresented: $todosViewModel.isError) { () -> Alert in
                 Alert(title: Text("Error"), message: Text(todosViewModel.error!.localizedDescription))
             }
         }
